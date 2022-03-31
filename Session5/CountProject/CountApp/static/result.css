@@ -1,0 +1,44 @@
+body {
+    background-color: aqua;
+    color: yellow;
+    font-family: 'Space Mono', monospace;
+    text-align: left;
+}
+
+   
+
+h4 {
+    font-size: 60px;
+}
+
+div {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+button {
+    background-color: #50586C;
+    border: 2px, solid, black;
+    margin-top: 50px;
+}
+
+a:link {
+    font-size: 50px;
+    color: #DCE2F0;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #DCE2F0;
+    text-decoration: none;
+}
+
+a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+a:active {
+    color: white;
+    text-decoration: none;
+}

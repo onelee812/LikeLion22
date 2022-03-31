@@ -1,0 +1,15 @@
+body {
+    background-color: aqua;
+    color: black;
+    font-family: 'Space Mono', monospace;
+    text-align: center;
+}
+
+h4 {
+    font-size: 60px;
+}
+
+input {
+    background-color: yellow;
+    color: #DCE2F0;
+}
