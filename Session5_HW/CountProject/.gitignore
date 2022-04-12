@@ -1,0 +1,5 @@
+.vscode
+DS_Store
+migrations
+db.sqlite3
+__pycahce__
