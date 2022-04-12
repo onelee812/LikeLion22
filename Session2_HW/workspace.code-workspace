@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "../Session0_HW"
+		},
+		{
+			"path": "../Session1_HW"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Session2_HW"
+	}
+}
