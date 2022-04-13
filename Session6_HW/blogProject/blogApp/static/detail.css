@@ -1,0 +1,28 @@
+body{
+    background-color: rgba(98, 151, 116, 0.767);
+    font-family: 'Space Mono', monospace;
+   
+}
+
+h1 {
+    font-size: medium;
+    font-weight: 600;
+    color:rgb(27, 34, 30); 
+}
+.detail{
+
+    font-size: xx-large;
+    font-weight: 300;
+    color: green;
+
+}
+.content{
+    padding: 20px 20px;
+    width: 80%;
+    background-color: rgb(236, 250, 202);
+    margin: 10px;
+    border-radius: 10px;
+    border:  black solid;
+    display: flex;
+    flex-direction: column;
+}

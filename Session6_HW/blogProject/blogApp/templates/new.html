@@ -1,34 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./new.css">
-</head>
-
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Comaptible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../static/new.css">
+        <title>blogProject</title>
+    </head>
 <body>
-  <h2>글 쓰기 페이지</h2>
-  <form action="/new" method="post">
-    {% csrf_token %}
-    <div>
-      <div>글 제목</div>
-      <input type="text" name="title" />
-    </div>
-    <div>
-      <div>글 내용</div>
-      <h3>글 전체 목록</h3>
-      <ul>
-        {% for article in articles %}
-        <li>{{ article.title }}</li>
-        {% endfor %}
-      </ul>
-      <a href="% url 'new' %}">글 쓰러 가기</a>
-      <textarea name="content" cols="30" row="10"></textarea>
-    </div>
-    <button type="submit">작성 완료</button>
-  </form>
+    <div class="main">
+        <h1>Writing Page</h1>
+    </div>  
+    <from action="{% url 'new' %}" method="post">
+       {% csrf_token %}
+            <div class="title">
+                <div>Title</div>
+                <div>
+                    <input type="text" name="title">
+                </div>
+            </div>
+            <br>
+            <div class="category">
+                <div>Category</div>
+                <div>
+                    <select name = 'category'>
+                        <option vlaue="hobby">Hobby</option>
+                        <option vlaue="food">Food</option>
+                        <option vlaue="coding">Coding</option>
+                    </select>
+                </div>
+            <br>
+            <div class="content">
+                <div>Content</div>
+                <div>
+                    <textarea name="content" cols="30" rows="10"></textarea>
+                </div>
+            </div>
+            <button type="submit">Done</button>
+    </from>
 </body>
-
-</html>
+</html>     

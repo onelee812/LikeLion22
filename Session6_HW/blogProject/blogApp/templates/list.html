@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Comaptible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../static/list.css">
+        <title>blogProject</title>
+        {% load static %}
+    </head>
+<body>
+    <div class="bloglist">
+    <h1>Blog List</h1>
+    </div>
+    <div class="list">
+        <ol class="article_list">
+            {% for article in articles %}
+            <li>
+                <a href="{% url 'detail' article.id %}">{{ article.title }}</a>   
+            </li>
+            {% endfor %}
+        </ol>
+    </div>
+    <div class="category">
+        <h1>Category List</h1>
+        <ul>
+            <li>
+                <div class="list">
+                    <a href="/category/hobby" class="category">hobby</a>
+                    <div class="num_of_articles">({{ article_nums.hobby }})</div>
+                </div>
+            </li>
+            <li>
+                <div class="list">
+                    <a href="/category/food" class="category">food</a>
+                    <div class="num_of_articles">({{ article_nums.food }})</div>
+                </div>
+            </li>
+            <li>
+                <div class="list">
+                    <a href="/category/coding" class="category">coding</a>
+                    <div class="num_of_articles">({{ article_nums.coding }})</div>
+                </div>
+            </li>
+        </ul>
+    </div>    
+
+    <div class="write">
+        <a href="{% url 'new' %}">Go to Write</a>
+    </div>        
+</body>
+</html>

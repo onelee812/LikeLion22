@@ -1,0 +1,66 @@
+body{
+    background-color: blanchedalmond;
+    justify-content: center;
+    font-family: 'Space Mono', monospace;
+    text-align: center;
+   
+}
+
+
+h1 {
+    font-size: xx-large;
+    font-weight: 600;
+    color:peru;
+    text-align: center;
+
+    
+}
+
+.title{
+    font-size: large;
+    font-weight: 600;
+    color:green;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.content{
+    font-size: large;
+    font-weight: 600;
+    color:green;
+    justify-content: center;
+   
+}
+
+.submit{
+    font-size: large;
+    font-weight: 600;
+    color:green;
+    justify-content: center;
+
+}
+
+.category {
+    font-size: large;
+    font-weight: 600;
+    color:green;
+    justify-content: center;
+    
+
+}
+select{
+    border-radius: 6px;
+    padding: 10px 30px 10px 20px;
+    font-size: medium;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+select option{
+    background-color: yellow;
+    color:black;
+    padding:5px;
+    justify-content: center;
+    
+ 
+}

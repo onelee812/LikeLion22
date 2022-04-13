@@ -1,31 +1,45 @@
-from django.shortcuts import render, redirect 
+
+from django.shortcuts import render, redirect
 from .models import Article
+
 # Create your views here.
 def new(request):
-    if request.method =='POST':
+    if request.method == "POST":
         print(request.POST)
         new_article = Article.objects.create(
             title = request.POST['title'],
-            category = request.POST['category'],
             content = request.POST['content'],
-            # date : automatically written
+            category = request.POST['category'],
         )
-        return redirect('list')   
+        return redirect('bogApp:list')
+
     return render(request, 'new.html')
+
+def count_articles(category_name):
+    result = 0
+    for article in Article.objects.all():
+        if article.category == category_name:
+            result += 1
+    return result
 
 def list(request):
     articles = Article.objects.all()
-    return render(request, 'list.html', {'articles': articles})
+    return render(request, 'list.html', {'articles': Article.objects.all(), 'article_nums':
+    {
+        'hobby': count_articles('hobby'),
+        'food': count_articles('food'),
+        'coding': count_articles('coding'),
+    }})
 
-def category(request, article_category):
-    samecategory = Article.objects.filter(category=article_category)
-    return render(request, 'category.html',
-                  {'articles': samecategory,
-                   'category': article_category})
+def category(request, category_name):
+    result = []
+    if category_name == 'none':
+        category_name = ''
+    for article in Article.objects.all():
+        if article.category == category_name:
+            result.append(article)
+    return render(request, 'category.html', {'articles': result})
+
 def detail(request, article_id):
-    # Get object from model
-    article = Article.objects.get(id=article_id)
-    return render(request, 'detail.html', 
-                  {'article_id':article_id,
-                   'article':article,
-                   })
+    print(article_id)
+    return render(request, 'detail.html', {'article': Article.objects.get(id=article_id)} )
