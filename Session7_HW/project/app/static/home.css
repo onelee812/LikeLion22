@@ -1,14 +1,9 @@
 body {
+    background-color: blanchedalmond;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 40px;
     display: flex;
     flex-direction: column;
-    font-family: 'Dongle', sans-serif;
-    font-size: 27px;
-    border: 3px solid rgb(179, 173, 173);
-    border-radius: 52px;
-    background-color: #ffdfeac4;
-    color:rgba(73, 71, 71, 0.782);
-    margin-left: 203px;
-    margin-right: 476px;
 }
 
 h1{
