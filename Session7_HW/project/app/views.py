@@ -1,35 +1,53 @@
 from django.shortcuts import render, redirect
-from .models import Post
+
+import project
+from .models import To_do
 # Create your views here.
-def new(request):
-    if request.method == 'POST':
-        new_post = Post.objects.create(
-            title = request.POST['title'],
-            content = request.POST['content']
-        )
-        return redirect('detail', new_post.pk)
-    return render(request, 'new.html')
 
 def home(request):
-    posts = Post.objects.all()
+    To_dos = To_do.objects.all()
 
-    return render(request, 'home.html', { 'posts' : posts })
+    return render(request, 'home.html', { 'To_dos' : To_dos })
 
-def detail(request, post_pk):
-    post = Post.objects.get(pk=post_pk)
-    return render(request, 'detail.html', {'post': post})
 
-def edit(request, post_pk):
-    post = Post.objects.get(pk=post_pk)
-    if request.method == 'POST':
-        Post.objects.filter(pk=post_pk).update(
+def new(request):
+    if request.method == 'POST' :
+        new_To_do = To_do.objects.create(
             title = request.POST['title'],
-            content = request.POST['content']
+            content = request.POST['content'],
+            deadline = request.POST['deadline'],
         )
-        return redirect('detail', post_pk)
-    return render(request, 'edit.html', {'post': post})
+        return redirect('detail', new_To_do.pk)
+    return render(request, 'new.html')
 
-def delete(request, post_pk):
-    post = Post.objects.get(pk=post_pk)
-    post.delete()
+def detail(request, Todo_pk):
+    Todo = To_do.objects.get(pk=Todo_pk)
+    Todo_deadline = Todo.deadline.strftime('%Y-%m-%d')
+    return render(request, 'detail.html', {
+        'Todo': Todo,
+        'Todo_deadline': Todo_deadline})
+    
+
+def edit(request, Todo_pk):
+    Todo = To_do.objects.get(pk=Todo_pk)
+    Todo_deadline = Todo.deadline.strftime('%Y-%m-%d')
+    if request.method == 'POST':
+        updated_Todo = To_do.objects.filter(pk=Todo_pk).update(
+            title = request.POST['title'],
+            content = request.POST['content'],
+            deadline = request.POST['deadline'],
+        )
+        return redirect('home')
+    
+    return render(request, 'edit.html', {
+        'Todo':Todo,
+        'Todo_deadline': Todo_deadline })
+
+def delete(request, Todo_pk):
+    Todo = To_do.objects.get(pk=Todo_pk)
+    Todo.delete()
+
     return redirect('home')
+
+
+
