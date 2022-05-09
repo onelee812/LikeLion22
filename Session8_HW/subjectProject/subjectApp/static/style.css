@@ -1,0 +1,24 @@
+body{
+    background-color: antiquewhite;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: normal;
+}
+h2{
+    font-size: large;
+    color:orange;
+    font-style: italic;
+}
+.majorlist{
+    border: 1px solid rgb(247, 183, 228);
+    border-radius: 10px 10px 10px 10px;
+    width: 400px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.subjectlist{
+    border: 1px solid rgb(247, 183, 228);
+    border-radius: 10px 10px 10px 10px;
+    width: 400px;
+    margin-top: 30px;
+}
