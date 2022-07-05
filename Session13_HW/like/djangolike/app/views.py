@@ -22,17 +22,16 @@ def like(request):
             user=request.user
         )
         
-        if new_like.count() > 0 :
-            new_like.delete()
-        post_likes = Like.objects.filter(
-            post = Post.objects.get(pk=post_pk)
-        )
+        if existing_like.count() > 0:
+            existing_like.delete()
+        else:
+            Like.objects.create(post=Post.objects.get(pk=post_pk), user=request.user)
 
         context = {
             'like_count' : post_likes.count(),
             'is_like' : is_like
         }
-    response={
+        response={
         'like_count':post_likes.count()
     }
     
@@ -52,6 +51,11 @@ def scrap(request):
             'scrap_count' : post_scraps.count(),
             'is_scrap' : is_scrap
         }
+        if existing_like.count() > 0:
+            existing_like.delete()
+        else:
+            Scrap.objects.create(post=Post.objects.get(pk=post_pk), user=request.user)
+
     return HttpResponse(json.dumps(response))
 
 def home(request):

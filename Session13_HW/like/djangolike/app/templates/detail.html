@@ -55,9 +55,6 @@
       if (res.data.like_count >= 1 && !likelike.classList.contains("clicked")) {
         likelike.classList.add("clicked");
       }
-      if (res.data.like_count == 0 && likelike.classList.contains("clicked")) {
-        likelike.classList.remove("clicked");
-      }
     });
   };
   const scrap = () => {
